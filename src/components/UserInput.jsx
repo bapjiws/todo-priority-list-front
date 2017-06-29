@@ -33,6 +33,11 @@ class UserInput extends Component {
     handleClick(event) {
         event.preventDefault();
         this.props.addTodo(this.state);
+        this.setState({
+            priority: 0,
+            name: '',
+            description: ''
+        });
     }
 
     render() {
