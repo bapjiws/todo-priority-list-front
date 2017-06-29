@@ -1,30 +1,8 @@
 import * as utils from '../../utils/sortTodos';
+import * as todoStubs from '../../stubs/todos';
 
 describe('findInsertionPoint', () => {
     it('should find the correct spot for inserting into an already sorted todo list', () => {
-        const todos = [
-            {
-                priority: 4,
-                name: 'eat something',
-                description: 'ASAP'
-            },
-            {
-                priority: 3,
-                name: 'get some sleep',
-                description: 'ASAP, too'
-            },
-            {
-                priority: 1,
-                name: 'do some work',
-                description: 'meh'
-            }
-        ];
-        const todoToInsert = {
-            priority: 2,
-            name: 'do the dishes',
-            description: 'not so urgent'
-        };
-
-        expect(utils.findInsertionPoint(todos, todoToInsert, utils.todoComparator)).toBe(2);
+        expect(utils.findInsertionPoint(todoStubs.currentTodos, todoStubs.todoToInsert, utils.todoComparator)).toBe(2);
     })
 });
