@@ -36,33 +36,19 @@ export class UserInput extends Component {
 
     render() {
         return <form className="form-container">
-            <span className="input-row">
-                <span>Priority:</span>
-                <input
-                    type="number"
-                    name="priority"
-                    value={this.state.priority}
-                    onChange={this.handleInputChange}
-                />
-            </span>
-            <span className="input-row">
-                <span>Name:</span>
-                <input
-                    type="text"
-                    name="name"
-                    value={this.state.name}
-                    onChange={this.handleInputChange}
-                />
-            </span>
-            <span className="input-row">
-                <span>Description:</span>
-                <input
-                    type="text"
-                    name="description"
-                    value={this.state.description}
-                    onChange={this.handleInputChange}
-                />
-            </span>
+            {
+                Object.keys(this.state).map((key, idx) =>
+                    <span className="input-row" key={idx}>
+                        <span>{key.charAt(0).toUpperCase() + key.slice(1) + ':'}</span>
+                        <input
+                            type={key === 'priority' ? 'number' : 'text'}
+                            name={key}
+                            value={this.state[key]}
+                            onChange={this.handleInputChange}
+                        />
+                    </span>
+                )
+            }
             <button onClick={this.handleClick}>Add</button>
         </form>
     }
