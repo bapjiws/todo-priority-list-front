@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserInput renders correctly 1`] = `
+<form
+  className="form-container"
+>
+  <span
+    className="input-row"
+  >
+    <span>
+      Priority:
+    </span>
+    <input
+      name="priority"
+      onChange={[Function]}
+      type="number"
+      value={0}
+    />
+  </span>
+  <span
+    className="input-row"
+  >
+    <span>
+      Name:
+    </span>
+    <input
+      name="name"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </span>
+  <span
+    className="input-row"
+  >
+    <span>
+      Description:
+    </span>
+    <input
+      name="description"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </span>
+  <button
+    onClick={[Function]}
+  >
+    Add
+  </button>
+</form>
+`;
