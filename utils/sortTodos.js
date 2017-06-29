@@ -1,3 +1,5 @@
+// Inspired by: https://stackoverflow.com/a/3464960/4134960
+
 export const findInsertionPoint = (sortedArr, val, comparator) => {
     let low = 0;
     let high = sortedArr.length;

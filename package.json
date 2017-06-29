@@ -7,6 +7,7 @@
   "license": "MIT",
   "devDependencies": {
     "css-hot-loader": "^1.1.1",
+    "jest": "^20.0.4",
     "nodemon": "^1.11.0",
     "redux-devtools-extension": "^2.13.0",
     "webpack-dev-middleware": "^1.10.2",
@@ -42,6 +43,8 @@
     "clean": "rimraf build",
     "dev": "nodemon server.js",
     "prod": "NODE_ENV=production node server.js",
-    "release-the-kraken": "yarn run build && yarn run prod"
+    "release-the-kraken": "yarn run build && yarn run prod",
+    "test": "jest --silent --verbose",
+    "test:watch": "jest --watch"
   }
 }
