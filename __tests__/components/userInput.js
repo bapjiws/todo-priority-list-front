@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json'; // Documentation: https://github.com/adriantoine/enzyme-to-json
 
 import { UserInput } from '../../src/components/UserInput';
+import * as todoStubs from '../../stubs/todos';
 
 describe('UserInput', () => {
     let wrapper;
@@ -23,5 +24,14 @@ describe('UserInput', () => {
 
         wrapper.find('input[name="description"]').simulate('change', { target: { name: 'description', value: 'quickly!' } });
         expect(wrapper.state('description')).toBe('quickly!');
-    })
+    });
+
+    it('should call addTodo upon form submission', () => {
+        const addTodo = jest.fn();
+        const wrapper = mount(<UserInput addTodo={addTodo}/>);
+
+        wrapper.setState(todoStubs.todoToInsert);
+        wrapper.find('button').simulate('click');
+        expect(addTodo).toHaveBeenCalledWith(todoStubs.todoToInsert);
+    });
 });
