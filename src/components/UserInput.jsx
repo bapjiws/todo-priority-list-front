@@ -3,13 +3,7 @@ import { connect } from 'react-redux';
 
 import { addTodo } from '../../redux/actions/todos';
 
-// let todoStub = {
-//     priority: 4,
-//     name: 'Покрасить забор',
-//     description: 'Покрасить забор вокруг дома розовым цветом до полуночи сегодня.'
-// };
-
-class UserInput extends Component {
+export class UserInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -72,7 +66,7 @@ class UserInput extends Component {
             <button onClick={this.handleClick}>Add</button>
         </form>
     }
-};
+}
 
 export default connect(
     null,
