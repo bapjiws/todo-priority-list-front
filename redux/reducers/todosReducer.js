@@ -22,7 +22,10 @@ const todosReducer = (todos = initialState, action) => {
             };
 
         case types.ADD_TODO_FAILURE:
-            // TODO: implement
+            return {
+                ...todos,
+                error
+            };
 
         case types.LOAD_TODOS_SUCCESS:
             // TODO: implement
