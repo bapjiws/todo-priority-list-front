@@ -14,9 +14,10 @@ const todosReducer = (todos = initialState, action) => {
 
         case types.ADD_TODO_SUCCESS:
             const insertionIdx = utils.findInsertionPoint(todos.data, todo, utils.todoComparator);
-            todos.data.splice(insertionIdx, 0, todo);
+            const newData = todos.data.slice();
+            newData.splice(insertionIdx, 0, todo);
             return {
-                data: todos.data, // most likely will have to use slice to avoid mutation
+                data: newData,
                 error: null
             };
 

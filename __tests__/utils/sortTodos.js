@@ -2,7 +2,7 @@ import * as utils from '../../utils/sortTodos';
 
 describe('findInsertionPoint', () => {
     it('should find the correct spot for inserting into an already sorted todo list', () => {
-        let todos = [
+        const todos = [
             {
                 priority: 4,
                 name: 'eat something',
