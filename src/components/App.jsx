@@ -9,9 +9,7 @@ import UserInput from './UserInput';
 
 const App = () => {
     return <Provider store={configureStore()}>
-        <div id="app-container">
-            <UserInput />
-        </div>
+        <UserInput/>
     </Provider>
 };
 
