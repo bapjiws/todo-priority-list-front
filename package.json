@@ -49,6 +49,7 @@
     "prod": "NODE_ENV=production node server.js",
     "release-the-kraken": "yarn run build && yarn run prod",
     "test": "jest --silent --verbose",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:update": "jest -u"
   }
 }
