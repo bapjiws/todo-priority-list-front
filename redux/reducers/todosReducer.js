@@ -5,7 +5,7 @@ const initialState = {
     error: null
 };
 
-const todosReducer = (todos = [], action) => {
+const todosReducer = (todos = initialState, action) => {
     const { type, data, error } = action;
 
     switch (type) {
