@@ -19,10 +19,13 @@ if (!inProductionMode) {
 }
 
 app.use(express.static(path.join(__dirname, 'build')));
-// app.use('/assets', express.static(path.join(__dirname, './assets')));
 
 app.get('/tasks', (req, res) => {
     res.sendFile(path.join(__dirname, 'build/index.html'));
+});
+
+app.get('*', (req, res) => {
+    res.send('404');
 });
 
 const port = process.env.PORT || 8080;
