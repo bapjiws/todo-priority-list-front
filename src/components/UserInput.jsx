@@ -17,7 +17,14 @@ export class UserInput extends Component {
     }
 
     handleInputChange(event) {
+        // console.log('event:', event.type);
+        // console.log('event.target:', event.target);
+
         const { name, value } = event.target;
+
+        // console.log('name, value:', name, value);
+        //
+        // console.log('Object.keys():', Object.keys(this.state));
 
         this.setState({
             [name]: value
