@@ -1,18 +1,22 @@
 import * as types from '../actions/types';
 
+import * as utils from '../../utils/sortTodos';
+
 const initialState = {
     data: [],
     error: null
 };
 
 const todosReducer = (todos = initialState, action) => {
-    const { type, data, error } = action;
+    const { type, todo, error } = action;
 
     switch (type) {
 
         case types.ADD_TODO_SUCCESS:
+            const insertionIdx = utils.findInsertionPoint(todos.data, todo, utils.todoComparator);
+            todos.data.splice(insertionIdx, 0, todo);
             return {
-                data: [ ...todos.data, data ],
+                data: todos.data, // most likely will have to use slice to avoid mutation
                 error: null
             };
 
