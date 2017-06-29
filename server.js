@@ -28,7 +28,7 @@ app.get('*', (req, res) => {
     res.send('404');
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 app.listen(port, () => inProductionMode ?
     console.log(`♫ In production mode. Listening on port ${port} ♫`) :
     console.log(`♫ In development mode. Listening on port ${port}  ♫`)
