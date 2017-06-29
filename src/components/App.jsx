@@ -1,5 +1,14 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
-const App = () => <h1>Hey there!</h1>;
+import configureStore from '../../redux/configureStore';
+
+import UserInput from './UserInput';
+
+const App = () => {
+    return <Provider store={configureStore()}>
+        <UserInput />
+    </Provider>
+};
 
 export default App;

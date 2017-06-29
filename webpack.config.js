@@ -42,7 +42,7 @@ if (inProductionMode) {
 module.exports = {
     entry: inProductionMode ? {
         bundle: './src/index.js',
-        vendor: ['react', 'react-dom', 'react-redux', 'redux']
+        vendor: ['react', 'react-dom', 'react-redux', 'redux', 'redux-thunk']
     } : [
         'react-hot-loader/patch',
         'webpack-hot-middleware/client',
@@ -59,7 +59,8 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 include: [
-                    path.join(__dirname, "/src")
+                    path.join(__dirname, "/src"),
+                    path.join(__dirname, "/redux")
                 ],
                 // React Hot Loader should be automatically disabled in production.
                 use: ['react-hot-loader/webpack', 'babel-loader']
