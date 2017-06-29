@@ -4,8 +4,11 @@ import thunk from 'redux-thunk';
 // Can't import it here when it's only installed as a dev dependency.
 // import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
+import { getAxiosInstance } from '../utils/axiosInstance';
+const axiosInstance = getAxiosInstance();
+
 const configureStore = () => {
-    const middlewares = [thunk];
+    const middlewares = [thunk.withExtraArgument({ axiosInstance })];
 
     return createStore(
         rootReducer,
