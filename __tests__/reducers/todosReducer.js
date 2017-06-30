@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
 
 import todosReducer from '../../redux/reducers/todosReducer';
-import { ADD_TODO_SUCCESS } from '../../redux/actions/types';
+import * as types from '../../redux/actions/types';
 import * as todoStubs from '../../stubs/todos';
 
 describe('todosReducer', () => {
@@ -12,7 +12,7 @@ describe('todosReducer', () => {
         };
 
         const action = {
-            type: ADD_TODO_SUCCESS,
+            type: types.ADD_TODO_SUCCESS,
             payload: todoStubs.todoToInsert
         };
 
@@ -23,4 +23,23 @@ describe('todosReducer', () => {
 
         expect(todosReducer(deepFreeze(todosBefore), deepFreeze(action))).toEqual(todosAfter);
     });
+
+    it('should load todos without side effects', () => {
+        const todosBefore = {
+            data: [],
+            error: null
+        };
+
+        const action = {
+            type: types.LOAD_TODOS_SUCCESS,
+            payload: todoStubs.sortedTodos
+        };
+
+        const todosAfter = {
+            data: todoStubs.sortedTodos,
+            error: null
+        };
+
+        expect(todosReducer(deepFreeze(todosBefore), deepFreeze(action))).toEqual(todosAfter);
+    })
 });
