@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// TODO: get rid of mockloadTodos when done
-import { loadTodos, mockloadTodos } from '../../redux/actions/todos';
+import { loadTodos } from '../../redux/actions/todos';
 
 export class TodoList extends Component {
     componentDidMount() {
-        this.props.mockloadTodos();
+        this.props.loadTodos();
     }
 
     render() {
@@ -35,5 +34,5 @@ export default connect(
     state => ({
         todos: state.todos.data
     }),
-    { loadTodos, mockloadTodos }
+    { loadTodos }
 )(TodoList);

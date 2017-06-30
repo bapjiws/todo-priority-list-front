@@ -47,9 +47,3 @@ export const loadTodos = () => {
             });
     }
 };
-
-export const mockloadTodos = () => {
-    return (dispatch, getState, { axiosInstance }) => {
-        dispatch(loadTodosSuccess(todoStubs.sortedTodos));
-    }
-};
