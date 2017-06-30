@@ -1,4 +1,4 @@
-html, body, div {
+html, body, div, ul {
   margin: 0;
   padding: 0;
   border:0;
@@ -22,6 +22,10 @@ html, body, div {
   justify-content: space-between;
 }
 
+.list-container {
+  margin-top: 50px;
+}
+
 * {
-  border: 1px solid red;
+  //border: 1px solid red;
 }

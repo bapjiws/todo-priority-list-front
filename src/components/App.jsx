@@ -6,10 +6,14 @@ import configureStore from '../../redux/configureStore';
 import '../../styles/main';
 
 import UserInput from './UserInput';
+import TodoList from './TodoList';
 
 const App = () => {
     return <Provider store={configureStore()}>
-        <UserInput/>
+        <div>
+            <UserInput/>
+            <TodoList/>
+        </div>
     </Provider>
 };
 

@@ -27,11 +27,12 @@ describe('UserInput', () => {
     });
 
     it('should call addTodo upon form submission', () => {
-        const addTodo = jest.fn();
-        const wrapper = mount(<UserInput addTodo={addTodo}/>);
+        // TODO: remove mockAddTodo when done
+        const mockAddTodo = jest.fn();
+        const wrapper = mount(<UserInput mockAddTodo={mockAddTodo}/>);
 
         wrapper.setState(todoStubs.todoToInsert);
         wrapper.find('button').simulate('click');
-        expect(addTodo).toHaveBeenCalledWith(todoStubs.todoToInsert);
+        expect(mockAddTodo).toHaveBeenCalledWith(todoStubs.todoToInsert);
     });
 });

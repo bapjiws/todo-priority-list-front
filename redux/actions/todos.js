@@ -20,3 +20,9 @@ export const addTodo = todo => {
             });
     }
 };
+
+export const mockAddTodo = todo => {
+    return (dispatch, getState, { axiosInstance }) => {
+        dispatch(addTodoSuccess(todo));
+    }
+};
