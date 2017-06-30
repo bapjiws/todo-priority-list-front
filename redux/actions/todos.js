@@ -1,5 +1,4 @@
 import * as types from '../actions/types';
-import * as todoStubs from '../../stubs/todos';
 
 export const addTodoSuccess = payload => ({type: types.ADD_TODO_SUCCESS, payload});
 export const addTodoFailure = error => ({type: types.ADD_TODO_FAILURE, error});
@@ -38,7 +37,7 @@ export const loadTodos = () => {
             url: '/loadTodos'
         })
             .then(response => {
-                dispatch(loadTodosSuccess(response.data));
+                dispatch(loadTodosSuccess(response.data.map(item => item.fields)));
                 return Promise.resolve();
             })
             .catch(error => {
