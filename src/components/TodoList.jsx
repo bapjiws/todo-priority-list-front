@@ -2,9 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export const TodoLIst = (props) => {
-    return <ul className="list-container">
-        { props.todos.map((todo, idx) => <li key={idx}>{ `${todo.name} | ${todo.description} | ${todo.priority}` }</li> ) }
-    </ul>
+    return <table className="todos-container">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Priority</th>
+        </tr>
+        {
+            props.todos.map((todo, idx) => <tr key={idx}>
+                <td>{todo.name}</td>
+                <td>{todo.description}</td>
+                <td>{todo.priority}</td>
+            </tr>)
+        }
+    </table>
 };
 
 export default connect(
