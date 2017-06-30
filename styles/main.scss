@@ -4,6 +4,10 @@ html, body, div, ul {
   border:0;
 }
 
+table > thead > tr > th {
+  text-align: left;
+}
+
 #root {
   display: flex;
   justify-content: center;
@@ -26,6 +30,6 @@ html, body, div, ul {
   margin-top: 50px;
 }
 
-* {
-  //border: 1px solid red;
-}
+//* {
+//  border: 1px solid red;
+//}

@@ -8,14 +8,14 @@ const initialState = {
 };
 
 const todosReducer = (todos = initialState, action) => {
-    const { type, todo, error } = action;
+    const { type, payload, error } = action;
 
     switch (type) {
 
         case types.ADD_TODO_SUCCESS:
-            const insertionIdx = utils.findInsertionPoint(todos.data, todo, utils.todoComparator);
+            const insertionIdx = utils.findInsertionPoint(todos.data, payload, utils.todoComparator);
             const newData = todos.data.slice();
-            newData.splice(insertionIdx, 0, todo);
+            newData.splice(insertionIdx, 0, payload);
             return {
                 data: newData,
                 error: null
@@ -28,10 +28,16 @@ const todosReducer = (todos = initialState, action) => {
             };
 
         case types.LOAD_TODOS_SUCCESS:
-            // TODO: implement
+            return {
+                data: payload,
+                error: null
+            };
 
         case types.LOAD_TODOS_FAILURE:
-            // TODO: implement
+            return {
+                ...todos,
+                error
+            };
 
         default:
             return todos;

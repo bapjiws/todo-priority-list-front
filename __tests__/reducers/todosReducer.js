@@ -13,7 +13,7 @@ describe('todosReducer', () => {
 
         const action = {
             type: ADD_TODO_SUCCESS,
-            todo: todoStubs.todoToInsert
+            payload: todoStubs.todoToInsert
         };
 
         const todosAfter = {

@@ -37,7 +37,7 @@ describe('addTodo', () => {
         const expectedActions = [
             {
                 type: types.ADD_TODO_SUCCESS,
-                todo: todoStubs.todoToInsert
+                payload: todoStubs.todoToInsert
             }
         ];
 

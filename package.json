@@ -54,7 +54,7 @@
     "release-the-kraken": "yarn run build && yarn run prod",
     "test": "jest --silent --verbose",
     "test:watch": "jest --watch",
-    "test:update": "jest -u"
+    "test:update": "jest --silent --verbose -u"
   },
   "pre-commit": "test"
 }
