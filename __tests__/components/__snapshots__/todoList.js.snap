@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList renders correctly 1`] = `
+<table
+  className="todos-container"
+>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+      Priority
+    </th>
+  </tr>
+  <tr>
+    <td>
+      eat something
+    </td>
+    <td>
+      ASAP
+    </td>
+    <td>
+      4
+    </td>
+  </tr>
+  <tr>
+    <td>
+      get some sleep
+    </td>
+    <td>
+      ASAP, too
+    </td>
+    <td>
+      3
+    </td>
+  </tr>
+  <tr>
+    <td>
+      do the dishes
+    </td>
+    <td>
+      not so urgent
+    </td>
+    <td>
+      2
+    </td>
+  </tr>
+  <tr>
+    <td>
+      do some work
+    </td>
+    <td>
+      meh
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+`;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export const TodoLIst = (props) => {
+export const TodoList = (props) => {
     return <table className="todos-container">
         <tr>
             <th>Name</th>
@@ -22,4 +22,4 @@ export default connect(
     state => ({
         todos: state.todos.data
     })
-)(TodoLIst);
+)(TodoList);
