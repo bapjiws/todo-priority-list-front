@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// TODO: remove mockAddTodo when done
-import { addTodo, mockAddTodo } from '../../redux/actions/todos';
+import { addTodo } from '../../redux/actions/todos';
 
 export class UserInput extends Component {
     constructor(props) {
@@ -27,7 +26,7 @@ export class UserInput extends Component {
 
     handleClick(event) {
         event.preventDefault();
-        this.props.mockAddTodo(this.state);
+        this.props.addTodo(this.state);
         this.setState({
             priority: 0,
             name: '',
@@ -57,5 +56,5 @@ export class UserInput extends Component {
 
 export default connect(
     null,
-    { addTodo, mockAddTodo }
+    { addTodo }
 )(UserInput);

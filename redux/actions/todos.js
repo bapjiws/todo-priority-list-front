@@ -21,12 +21,6 @@ export const addTodo = todo => {
     }
 };
 
-export const mockAddTodo = todo => {
-    return (dispatch, getState, { axiosInstance }) => {
-        dispatch(addTodoSuccess(todo));
-    }
-};
-
 export const loadTodosSuccess = payload => ({type: types.LOAD_TODOS_SUCCESS, payload});
 export const loadTodosFailure = error => ({type: types.LOAD_TODOS_FAILURE, error});
 
