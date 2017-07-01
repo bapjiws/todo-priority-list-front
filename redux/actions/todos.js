@@ -34,7 +34,10 @@ export const loadTodos = () => {
     return (dispatch, getState, { axiosInstance }) => {
         return axiosInstance({
             method: 'get',
-            url: '/loadTodos'
+            url: '/loadTodos',
+            params: {
+                sort: 'desc'
+            }
         })
             .then(response => {
                 dispatch(loadTodosSuccess(response.data.map(item => item.fields)));
