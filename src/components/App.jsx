@@ -10,7 +10,7 @@ import TodoList from './TodoList';
 
 const App = () => {
     return <Provider store={configureStore()}>
-        <div>
+        <div id="app-container">
             <UserInput/>
             <TodoList/>
         </div>

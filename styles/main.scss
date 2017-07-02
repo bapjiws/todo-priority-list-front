@@ -16,6 +16,10 @@ table > thead > tr > th {
   border: 1px solid blue;
 }
 
+#app-container {
+  width: 50%;
+}
+
 .form-container {
   height: 13%;
   margin-top: 30px;
@@ -27,7 +31,7 @@ table > thead > tr > th {
 }
 
 .todos-container {
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 //* {

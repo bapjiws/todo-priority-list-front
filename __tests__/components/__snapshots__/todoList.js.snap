@@ -1,8 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TodoList renders correctly 1`] = `
-<table
+<Table
+  bordered={true}
+  bsClass="table"
   className="todos-container"
+  condensed={true}
+  hover={false}
+  responsive={false}
+  striped={true}
 >
   <thead>
     <tr>
@@ -63,5 +69,5 @@ exports[`TodoList renders correctly 1`] = `
       </td>
     </tr>
   </tbody>
-</table>
+</Table>
 `;

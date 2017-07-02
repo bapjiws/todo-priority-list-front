@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Table } from 'react-bootstrap';
 
 import { loadTodos } from '../../redux/actions/todos';
 
@@ -9,7 +10,7 @@ export class TodoList extends Component {
     }
 
     render() {
-        return <table className="todos-container">
+        return <Table striped bordered condensed className="todos-container">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -26,7 +27,7 @@ export class TodoList extends Component {
                     </tr>)
                 }
             </tbody>
-        </table>
+        </Table>
     }
 }
 
