@@ -28,7 +28,7 @@ describe('UserInput', () => {
         expect(wrapper.state('description')).toBe('quickly!');
     });
 
-    it('should call addTodo upon form submission', () => { // ... and reset the state
+    it('should call addTodo upon form submission and clear the state', () => {
         const addTodo = jest.fn();
         const wrapper = mount(<UserInput addTodo={addTodo}/>);
 
@@ -44,6 +44,8 @@ describe('UserInput', () => {
         wrapper.find('button').simulate('click');
         expect(addTodo).toHaveBeenCalledWith(todoStubs.todoToInsert);
 
-        // TODO: also test that the state is dropped on submission
+        expect(wrapper.state('priority')).toBe(0);
+        expect(wrapper.state('name')).toBe('');
+        expect(wrapper.state('description')).toBe('');
     });
 });
