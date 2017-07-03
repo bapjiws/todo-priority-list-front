@@ -242,9 +242,10 @@ exports[`UserInput renders correctly 1`] = `
     <FormGroup
       bsClass="form-group"
       controlId="name"
+      validationState="error"
     >
       <div
-        className="form-group"
+        className="form-group has-feedback has-error"
       >
         <ControlLabel
           bsClass="control-label"
@@ -261,7 +262,7 @@ exports[`UserInput renders correctly 1`] = `
           bsClass="form-control"
           componentClass="input"
           onChange={[Function]}
-          placeholder="Enter name"
+          placeholder="Name your todo"
           type="text"
           value=""
         >
@@ -269,19 +270,34 @@ exports[`UserInput renders correctly 1`] = `
             className="form-control"
             id="name"
             onChange={[Function]}
-            placeholder="Enter name"
+            placeholder="Name your todo"
             type="text"
             value=""
           />
         </FormControl>
+        <FormControlFeedback
+          bsClass="form-control-feedback"
+          bsRole="feedback"
+        >
+          <Glyphicon
+            bsClass="glyphicon"
+            className="form-control-feedback"
+            glyph="remove"
+          >
+            <span
+              className="form-control-feedback glyphicon glyphicon-remove"
+            />
+          </Glyphicon>
+        </FormControlFeedback>
       </div>
     </FormGroup>
     <FormGroup
       bsClass="form-group"
       controlId="description"
+      validationState="error"
     >
       <div
-        className="form-group"
+        className="form-group has-feedback has-error"
       >
         <ControlLabel
           bsClass="control-label"
@@ -298,7 +314,7 @@ exports[`UserInput renders correctly 1`] = `
           bsClass="form-control"
           componentClass="input"
           onChange={[Function]}
-          placeholder="Enter description"
+          placeholder="Describe your todo"
           type="text"
           value=""
         >
@@ -306,11 +322,25 @@ exports[`UserInput renders correctly 1`] = `
             className="form-control"
             id="description"
             onChange={[Function]}
-            placeholder="Enter description"
+            placeholder="Describe your todo"
             type="text"
             value=""
           />
         </FormControl>
+        <FormControlFeedback
+          bsClass="form-control-feedback"
+          bsRole="feedback"
+        >
+          <Glyphicon
+            bsClass="glyphicon"
+            className="form-control-feedback"
+            glyph="remove"
+          >
+            <span
+              className="form-control-feedback glyphicon glyphicon-remove"
+            />
+          </Glyphicon>
+        </FormControlFeedback>
       </div>
     </FormGroup>
     <Button

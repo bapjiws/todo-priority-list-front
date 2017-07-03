@@ -35,6 +35,14 @@ export class UserInput extends Component {
     }
 
     handleSubmit(event) {
+        // console.log('this.getNameValidationState():', this.getNameValidationState());
+
+        if (this.getNameValidationState() === 'error' || this.getDescriptionValidationState() === 'error') {
+            console.log('INPUT ERROR');
+            event.preventDefault();
+            return;
+        }
+
         console.log('BUTTON');
 
         event.preventDefault();
@@ -54,6 +62,16 @@ export class UserInput extends Component {
         this.setState({
            priority: +event.target.value
         });
+    }
+
+    getNameValidationState() {
+        const length = this.state.name.length;
+        return length === 0 ? 'error' : 'success';
+    }
+
+    getDescriptionValidationState() {
+        const length = this.state.description.length;
+        return length === 0 ? 'error' : 'success';
     }
 
     render() {
@@ -82,26 +100,30 @@ export class UserInput extends Component {
 
             <FormGroup
                 controlId="name"
+                validationState={this.getNameValidationState()}
             >
                 <ControlLabel>Name</ControlLabel>
                 <FormControl
                     type="text"
                     value={this.state.name}
-                    placeholder="Enter name"
+                    placeholder="Name your todo"
                     onChange={this.handleChange}
                 />
+                <FormControl.Feedback />
             </FormGroup>
 
             <FormGroup
                 controlId="description"
+                validationState={this.getDescriptionValidationState()}
             >
                 <ControlLabel>Description</ControlLabel>
                 <FormControl
                     type="text"
                     value={this.state.description}
-                    placeholder="Enter description"
+                    placeholder="Describe your todo"
                     onChange={this.handleChange}
                 />
+                <FormControl.Feedback />
             </FormGroup>
 
             <Button type="submit" onClick={this.handleSubmit}>
