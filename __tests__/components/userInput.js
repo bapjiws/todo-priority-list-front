@@ -8,6 +8,8 @@ import * as todoStubs from '../../stubs/todos';
 describe('UserInput', () => {
     let wrapper;
     beforeEach(() => {
+        // TODO: find a way to set the first radio button's value to 1
+        UserInput.prototype.componentDidMount = jest.fn();
         wrapper = mount(<UserInput />)
     });
 
@@ -44,7 +46,7 @@ describe('UserInput', () => {
         wrapper.find('button').simulate('click');
         expect(addTodo).toHaveBeenCalledWith(todoStubs.todoToInsert);
 
-        expect(wrapper.state('priority')).toBe(0);
+        expect(wrapper.state('priority')).toBe(1);
         expect(wrapper.state('name')).toBe('');
         expect(wrapper.state('description')).toBe('');
     });

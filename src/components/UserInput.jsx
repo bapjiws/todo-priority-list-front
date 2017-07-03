@@ -10,7 +10,7 @@ export class UserInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            priority: 0,
+            priority: 1,
             name: '',
             description: ''
         };
@@ -23,6 +23,10 @@ export class UserInput extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCLick = this.handleCLick.bind(this);
+    }
+
+    componentDidMount() {
+        document.querySelectorAll('input[type="radio"]')[0].checked = true;
     }
 
     handleChange(event) {
@@ -48,9 +52,9 @@ export class UserInput extends Component {
         event.preventDefault();
 
         this.props.addTodo(this.state);
-        document.querySelectorAll('input[type="radio"]')[this.state.priority-1].checked = false;
+        document.querySelectorAll('input[type="radio"]')[0].checked = true;
         this.setState({
-            priority: 0,
+            priority: 1,
             name: '',
             description: ''
         });
@@ -106,7 +110,7 @@ export class UserInput extends Component {
                 <FormControl
                     type="text"
                     value={this.state.name}
-                    placeholder="Name your todo"
+                    placeholder="Name your task"
                     onChange={this.handleChange}
                 />
                 <FormControl.Feedback />
@@ -120,7 +124,7 @@ export class UserInput extends Component {
                 <FormControl
                     type="text"
                     value={this.state.description}
-                    placeholder="Describe your todo"
+                    placeholder="Describe your task"
                     onChange={this.handleChange}
                 />
                 <FormControl.Feedback />

@@ -262,7 +262,7 @@ exports[`UserInput renders correctly 1`] = `
           bsClass="form-control"
           componentClass="input"
           onChange={[Function]}
-          placeholder="Name your todo"
+          placeholder="Name your task"
           type="text"
           value=""
         >
@@ -270,7 +270,7 @@ exports[`UserInput renders correctly 1`] = `
             className="form-control"
             id="name"
             onChange={[Function]}
-            placeholder="Name your todo"
+            placeholder="Name your task"
             type="text"
             value=""
           />
@@ -314,7 +314,7 @@ exports[`UserInput renders correctly 1`] = `
           bsClass="form-control"
           componentClass="input"
           onChange={[Function]}
-          placeholder="Describe your todo"
+          placeholder="Describe your task"
           type="text"
           value=""
         >
@@ -322,7 +322,7 @@ exports[`UserInput renders correctly 1`] = `
             className="form-control"
             id="description"
             onChange={[Function]}
-            placeholder="Describe your todo"
+            placeholder="Describe your task"
             type="text"
             value=""
           />
