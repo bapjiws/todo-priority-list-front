@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FormGroup, FormControl, ControlLabel, Radio, Button } from 'react-bootstrap';
 
 import { addTodo } from '../../redux/actions/todos';
+
+const priorityScale = [1,2,3,4,5,6,7,8,9,10];
 
 export class UserInput extends Component {
     constructor(props) {
@@ -12,21 +15,32 @@ export class UserInput extends Component {
             description: ''
         };
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        // this.priorities = priorityScale.reduce((acc, curr) => {
+        //     acc[curr] = null;
+        //     return acc;
+        // }, {});
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCLick = this.handleCLick.bind(this);
     }
 
-    handleInputChange(event) {
-        const { name, value } = event.target;
+    handleChange(event) {
+        // console.log('event:', event.target.id, event.target.value);
 
+        const { id, value } = event.target;
         this.setState({
-            [name]: name === 'priority' ? +value : value
+            [id]: id === 'priority' ? +value : value // this.state.priority is now handled by this.handleCLick
         });
     }
 
-    handleClick(event) {
+    handleSubmit(event) {
+        console.log('BUTTON');
+
         event.preventDefault();
+
         this.props.addTodo(this.state);
+        document.querySelectorAll('input[type="radio"]')[this.state.priority-1].checked = false;
         this.setState({
             priority: 0,
             name: '',
@@ -34,22 +48,65 @@ export class UserInput extends Component {
         });
     }
 
+    handleCLick(event) {
+        // console.log('event:', event.target);
+        console.log('CLICK:', +event.target.value);
+        this.setState({
+           priority: +event.target.value
+        });
+    }
+
     render() {
         return <form className="form-container">
-            {
-                Object.keys(this.state).map((key, idx) =>
-                    <span className="input-row" key={idx}>
-                        <span>{key.charAt(0).toUpperCase() + key.slice(1) + ':'}</span>
-                        <input
-                            type={key === 'priority' ? 'number' : 'text'}
-                            name={key}
-                            value={this.state[key]}
-                            onChange={this.handleInputChange}
-                        />
-                    </span>
-                )
-            }
-            <button onClick={this.handleClick}>Add</button>
+            <FormGroup
+                className="form-space-between"
+                controlId="priority"
+            >
+                <ControlLabel>Priority</ControlLabel>
+                {' '}
+                <span>
+                    {
+                        priorityScale.map((priority, idx) =>
+                            <Radio
+                                inline key={idx}
+                                name="radioGroup"
+                                value={priority}
+                                // inputRef={ref => { this.priorities[priority] = ref; }}
+                                onClick={this.handleCLick}
+                            >
+                                {priority}
+                            </Radio>)
+                    }
+                </span>
+            </FormGroup>
+
+            <FormGroup
+                controlId="name"
+            >
+                <ControlLabel>Name</ControlLabel>
+                <FormControl
+                    type="text"
+                    value={this.state.name}
+                    placeholder="Enter name"
+                    onChange={this.handleChange}
+                />
+            </FormGroup>
+
+            <FormGroup
+                controlId="description"
+            >
+                <ControlLabel>Description</ControlLabel>
+                <FormControl
+                    type="text"
+                    value={this.state.description}
+                    placeholder="Enter description"
+                    onChange={this.handleChange}
+                />
+            </FormGroup>
+
+            <Button type="submit" onClick={this.handleSubmit}>
+                Submit
+            </Button>
         </form>
     }
 }

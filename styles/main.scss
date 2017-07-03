@@ -18,11 +18,17 @@ table > thead > tr > th {
 
 #app-container {
   width: 50%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
 }
 
 .form-container {
   height: 13%;
-  margin-top: 30px;
+  //margin-top: 30px;
+
+  width: 100%;
 }
 
 .input-row {
@@ -31,7 +37,12 @@ table > thead > tr > th {
 }
 
 .todos-container {
-  margin-top: 70px;
+  //margin-top: 100px;
+}
+
+.form-space-between {
+  display: flex;
+  justify-content: space-between;
 }
 
 //* {

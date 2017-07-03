@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
 import toJson from 'enzyme-to-json'; // Documentation: https://github.com/adriantoine/enzyme-to-json
 
 import { UserInput } from '../../src/components/UserInput';
@@ -8,7 +8,7 @@ import * as todoStubs from '../../stubs/todos';
 describe('UserInput', () => {
     let wrapper;
     beforeEach(() => {
-        wrapper = shallow(<UserInput />)
+        wrapper = mount(<UserInput />)
     });
 
     it('renders correctly', () => {
@@ -16,22 +16,34 @@ describe('UserInput', () => {
     });
 
     it('should update pieces of its own state', () => {
-        wrapper.find('input[name="priority"]').simulate('change', { target: { name: 'priority', value: 3 } });
+        expect(wrapper.find('input[type="radio"]').length).toBe(10);
+
+        wrapper.find('input[type="radio"]').at(2).simulate('click');
         expect(wrapper.state('priority')).toBe(3);
 
-        wrapper.find('input[name="name"]').simulate('change', { target: { name: 'name', value: 'do laundry' } });
+        wrapper.find('input[id="name"]').simulate('change', { target: { id: 'name', value: 'do laundry' } });
         expect(wrapper.state('name')).toBe('do laundry');
 
-        wrapper.find('input[name="description"]').simulate('change', { target: { name: 'description', value: 'quickly!' } });
+        wrapper.find('input[id="description"]').simulate('change', { target: { id: 'description', value: 'quickly!' } });
         expect(wrapper.state('description')).toBe('quickly!');
     });
 
-    it('should call addTodo upon form submission', () => {
+    it('should call addTodo upon form submission', () => { // ... and reset the state
         const addTodo = jest.fn();
         const wrapper = mount(<UserInput addTodo={addTodo}/>);
+
+        document.querySelectorAll = jest.fn().mockImplementation(selector => {
+            return [{
+                checked: false
+            }, {
+                checked: false
+            }]
+        });
 
         wrapper.setState(todoStubs.todoToInsert);
         wrapper.find('button').simulate('click');
         expect(addTodo).toHaveBeenCalledWith(todoStubs.todoToInsert);
+
+        // TODO: also test that the state is dropped on submission
     });
 });
