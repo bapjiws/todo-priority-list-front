@@ -15,8 +15,21 @@ const plugins = [
 ];
 
 if (inProductionMode) {
+    // TODO: use webpack.EnvironmentPlugin and remove webpack.DefinePlugin
+    const dotEnvVars = require('dotenv').config().parsed;
+    const envVars = Object.keys(dotEnvVars).
+    reduce( (acc, key) => {
+        acc['process.env'][key] = JSON.stringify(dotEnvVars[key]);
+        return acc;
+    }, {
+        'process.env': {
+            NODE_ENV: JSON.stringify(NODE_ENV)
+        }
+    });
+
     plugins.push(
-        new webpack.EnvironmentPlugin(['NODE_ENV', 'GOOGLE_URL_SHORTENER_API', 'API_KEY', 'APP_URL']),
+        // new webpack.EnvironmentPlugin(['NODE_ENV', 'GOOGLE_URL_SHORTENER_API', 'API_KEY', 'APP_URL']),
+        new webpack.DefinePlugin(envVars),
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'manifest']
         })
