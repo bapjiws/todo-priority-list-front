@@ -15,11 +15,6 @@ export class UserInput extends Component {
             description: ''
         };
 
-        // this.priorities = priorityScale.reduce((acc, curr) => {
-        //     acc[curr] = null;
-        //     return acc;
-        // }, {});
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCLick = this.handleCLick.bind(this);
@@ -30,8 +25,6 @@ export class UserInput extends Component {
     }
 
     handleChange(event) {
-        // console.log('event:', event.target.id, event.target.value);
-
         const { id, value } = event.target;
         this.setState({
             [id]: id === 'priority' ? +value : value // this.state.priority is now handled by this.handleCLick
@@ -39,15 +32,10 @@ export class UserInput extends Component {
     }
 
     handleSubmit(event) {
-        // console.log('this.getNameValidationState():', this.getNameValidationState());
-
         if (this.getNameValidationState() === 'error' || this.getDescriptionValidationState() === 'error') {
-            console.log('INPUT ERROR');
             event.preventDefault();
             return;
         }
-
-        console.log('BUTTON');
 
         event.preventDefault();
 
@@ -61,8 +49,6 @@ export class UserInput extends Component {
     }
 
     handleCLick(event) {
-        // console.log('event:', event.target);
-        console.log('CLICK:', +event.target.value);
         this.setState({
            priority: +event.target.value
         });
